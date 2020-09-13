@@ -6,20 +6,24 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float health = 100;
+    public int health = 100;
+    public Rigidbody2D rb;
+    public float x_damage;
+    public float y_damage;
 
     void Update()
     {
         if(transform.position.y <= -20)
         {
-            TakeDamage(Mathf.Infinity);
+            TakeDamage(9999999);
         }
         
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
+        rb.AddForce(new Vector2(-x_damage*Input.GetAxis("Horizontal"), y_damage));
         if(health <= 0)
         {
             Debug.Log("Player Dead");
@@ -28,13 +32,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            TakeDamage(20);
-        }
-    }
+
 
 
 }
