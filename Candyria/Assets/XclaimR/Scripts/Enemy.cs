@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public float x_damage;
     public float y_damage;
+    public EnemyMovement em;
+
     void Start()
     {
         currentHealth = maxHeath;
@@ -18,11 +20,25 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,float axis)
     {
         currentHealth -= damage;
         animator.SetTrigger("Enemy_Damage");
-        rb.AddForce(new Vector2(x_damage * Input.GetAxis("Horizontal"), y_damage));
+        if(axis < 0)
+        {
+            rb.AddForce(new Vector2(-x_damage, y_damage));
+        }
+        if(axis > 0)
+        {
+            rb.AddForce(new Vector2(x_damage, y_damage));
+        }
+        else
+        {
+            rb.AddForce(new Vector2(0, y_damage));
+        }
+        
+        
+         
         //Play Hurt Animation
         if (currentHealth <= 0)
         {

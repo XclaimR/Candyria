@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    EnemyMovement enemyMovement;
     public int attackDamage = 40;
 
     // Update is called once per frame
@@ -39,7 +40,8 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("We hit" + enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Debug.Log(Input.GetAxis("Horizontal"));
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage, Input.GetAxis("Horizontal"));
         }
         //Detect Enemies in Range
         //Damage Them

@@ -367,6 +367,8 @@ GameObject:
   - component: {fileID: 296868961}
   - component: {fileID: 296868962}
   - component: {fileID: 296868963}
+  - component: {fileID: 296868965}
+  - component: {fileID: 296868964}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -511,10 +513,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 296868956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61fc705b323a6c145bafaefc23b44fcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 69211645c24c2b942a4382fe38b0a0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 100
+  animator: {fileID: 296868964}
+  rb: {fileID: 296868957}
+  x_damage: 300
+  y_damage: 200
+  em: {fileID: 296868961}
 --- !u!114 &296868963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,12 +531,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 296868956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac6130935a9f874eb93474c990d6fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: f579dc17a24125f47a71112e243d0bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  MoveRight: 0
+--- !u!95 &296868964
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296868956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a98603efb5c94d942a3f8c7e9b3d51f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &296868965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296868956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fa6f46916900c42ad5f81f060539a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 20
   animator: {fileID: 2060371940}
-  attackRate: 2
+  attackRate: 0.5
 --- !u!1 &320915057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +2197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2060371930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eed42a9f7061744ba2e77626f562452, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dfae9cc05341624885e0bacb9491600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2060371940}
