@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float x_damage;
     public float y_damage;
+    public Canvas canvas;
+    public Animator canvasanimator;
 
     void Update()
     {
@@ -26,9 +28,10 @@ public class Player : MonoBehaviour
         rb.AddForce(new Vector2(-x_damage*Input.GetAxis("Horizontal"), y_damage));
         if(health <= 0)
         {
+            canvasanimator.SetTrigger("is_Dead");
             Debug.Log("Player Dead");
-            Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //Destroy(gameObject);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
